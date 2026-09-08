@@ -239,10 +239,10 @@
   /* ubicacion */
   .location{
     background:var(--ink); color:#fff; border-radius:var(--radius-lg);
-    display:grid; grid-template-columns:1fr 1fr; overflow:hidden; box-shadow:var(--shadow);
+    padding:48px; overflow:hidden; box-shadow:var(--shadow);
   }
   :root[data-theme="dark"] .location, @media (prefers-color-scheme: dark){ :root:not([data-theme="light"]) .location{background:#120A1C;} }
-  .location-copy{padding:48px; display:flex; flex-direction:column; gap:16px; justify-content:center;}
+  .location-copy{display:flex; flex-direction:column; gap:16px;}
   .location-copy .mono-tag{color:var(--yellow);}
   .location-copy h2{color:#fff;}
   .location-copy p{color:rgba(255,255,255,0.78); font-size:16px;}
@@ -250,9 +250,11 @@
     background:rgba(255,255,255,0.08); border:1px dashed rgba(255,255,255,0.35);
     border-radius:var(--radius-sm); padding:18px 20px; font-family:"Space Mono"; font-size:14px; line-height:1.7;
   }
-  .location-map{min-height:340px;}
-  .location-map iframe{width:100%; height:100%; border:0; display:block; filter:grayscale(0.15);}
-  @media (max-width:860px){ .location{grid-template-columns:1fr;} }
+  .branches-grid{display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-top:8px;}
+  .branch-card{background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.14); border-radius:var(--radius-md); padding:26px; display:flex; flex-direction:column; gap:14px;}
+  .branch-card h3{color:#fff; font-family:"Baloo 2"; font-weight:700; font-size:18px; margin:0;}
+  .branch-card .hero-actions{margin-top:0;}
+  @media (max-width:760px){ .branches-grid{grid-template-columns:1fr;} }
 
   footer{
     margin-top:110px; padding:48px 0 40px; border-top:1px solid var(--border);
@@ -376,7 +378,7 @@
   <div class="ticket">
     <div class="ticket-item">
       <span class="label">Ubicación</span>
-      <span class="val">San Bartolo Tenayuca, Edo. Méx.</span>
+      <span class="val">Tlalnepantla y Tultitlán</span>
     </div>
     <div class="ticket-item">
       <span class="label">Ideal para</span>
@@ -400,7 +402,7 @@
       <span class="mono-tag">Quiénes somos</span>
       <h2 style="margin-top:10px;">Un lugar pensado para que los niños no paren de moverse</h2>
       <p>En Colors Kids el punto es que nadie se aburra: tres niveles conectados por túneles, puentes de cuerda y resbaladillas, para que la fiesta se sienta como una aventura completa y no como una tarde de sillas y globos.</p>
-      <p>Estamos en San Bartolo Tenayuca, Tlalnepantla — una sola sede, sin sucursales. Si buscaste "Colors Kids" y llegaste a otra dirección, probablemente no somos nosotros.</p>
+      <p>Tenemos dos sedes en el Estado de México — Tlalnepantla y Tultitlán — así que sin importar de qué lado te quede, hay un Colors Kids cerca.</p>
     </div>
   </section>
 
@@ -481,25 +483,36 @@
     <div class="location">
       <div class="location-copy">
         <span class="mono-tag">Cómo llegar</span>
-        <h2>Nuestra única sede está en San Bartolo Tenayuca</h2>
-        <p>No tenemos otras sucursales — si viste "Colors Kids" en otra colonia, probablemente es un negocio distinto. Esta es la dirección correcta:</p>
-        <div class="addr-card">
-          Xochitl 11, San Bartolo Tenayuca<br>
-          CP 54150, Tlalnepantla<br>
-          Estado de México, México<br>
-          Tel/WhatsApp: 55 4987 5340
+        <h2>Tenemos dos sedes</h2>
+        <p>Una en Tlalnepantla y otra en Tultitlán — elige la que te quede más cerca:</p>
+        <div class="branches-grid">
+          <div class="branch-card">
+            <h3>Sucursal Tlalnepantla</h3>
+            <div class="addr-card">
+              Xochitl 11, San Bartolo Tenayuca<br>
+              CP 54150, Tlalnepantla<br>
+              Estado de México<br>
+              Tel/WhatsApp: 55 4987 5340
+            </div>
+            <div class="hero-actions">
+              <a class="btn" href="https://wa.me/525549875340?text=Hola%2C%20quiero%20informaci%C3%B3n%20para%20una%20fiesta%20infantil%20en%20Tlalnepantla" target="_blank" rel="noopener">Escribir por WhatsApp</a>
+              <a class="btn btn-ghost" style="color:#fff; border-color:rgba(255,255,255,0.5);" href="https://www.google.com/maps/search/?api=1&query=Xochitl+11,+San+Bartolo+Tenayuca,+Tlalnepantla,+Estado+de+M%C3%A9xico" target="_blank" rel="noopener">Abrir en Google Maps ↗</a>
+            </div>
+          </div>
+          <div class="branch-card">
+            <h3>Sucursal Tultitlán</h3>
+            <div class="addr-card">
+              Tepoztlán #3, Barrio la Concepción<br>
+              Tultitlán<br>
+              Estado de México<br>
+              Tel/WhatsApp: 55 3006 2229
+            </div>
+            <div class="hero-actions">
+              <a class="btn" href="https://wa.me/525530062229?text=Hola%2C%20quiero%20informaci%C3%B3n%20para%20una%20fiesta%20infantil%20en%20Tultitl%C3%A1n" target="_blank" rel="noopener">Escribir por WhatsApp</a>
+              <a class="btn btn-ghost" style="color:#fff; border-color:rgba(255,255,255,0.5);" href="https://www.google.com/maps/search/?api=1&query=Tepoztl%C3%A1n+3,+Barrio+la+Concepci%C3%B3n,+Tultitl%C3%A1n,+Estado+de+M%C3%A9xico" target="_blank" rel="noopener">Abrir en Google Maps ↗</a>
+            </div>
+          </div>
         </div>
-        <div class="hero-actions">
-          <a class="btn" href="https://wa.me/525549875340?text=Hola%2C%20quiero%20informaci%C3%B3n%20para%20una%20fiesta%20infantil" target="_blank" rel="noopener">Escribir por WhatsApp</a>
-          <a class="btn btn-ghost" style="color:#fff; border-color:rgba(255,255,255,0.5);" href="https://www.google.com/maps/search/?api=1&query=Xochitl+11,+San+Bartolo+Tenayuca,+Tlalnepantla,+Estado+de+M%C3%A9xico" target="_blank" rel="noopener">Abrir en Google Maps ↗</a>
-        </div>
-      </div>
-      <div class="location-map" style="display:flex; align-items:center; justify-content:center; position:relative; background:linear-gradient(150deg, var(--magenta) 0%, var(--violet) 55%, var(--cyan) 100%);">
-        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" style="opacity:0.95;">
-          <path d="M12 2C7.86 2 4.5 5.36 4.5 9.5c0 5.5 6.5 12 7.5 12s7.5-6.5 7.5-12C19.5 5.36 16.14 2 12 2z" fill="#fff"/>
-          <circle cx="12" cy="9.5" r="3.2" fill="var(--magenta-ink)"/>
-        </svg>
-        <span style="position:absolute; bottom:22px; left:0; right:0; text-align:center; color:#fff; font-family:'Space Mono'; font-size:12px; letter-spacing:0.12em; text-transform:uppercase;">San Bartolo Tenayuca · CP 54150</span>
       </div>
     </div>
   </section>
